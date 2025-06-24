@@ -1,5 +1,15 @@
 body {
     background-color: bisque;
+    font-family: Arial, sans-serif;
+      padding: 20px;
+}
+
+.question {
+      margin-bottom: 30px;
+}
+
+h2 {
+    margin-bottom: 10px;
 }
 
 button {
