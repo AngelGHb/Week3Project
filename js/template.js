@@ -2,16 +2,16 @@ document.getElementById('quiz-form').addEventListener('submit', function (e) {
   e.preventDefault();
 
   const correctAnswers = {
-    q1: 'a',
+    q1: 'c',
     q2: 'b',
-    q3: 'c',
-    q4: 'd',
+    q3: 'd',
+    q4: 'a',
     q5: 'a',
     q6: 'b',
     q7: 'c',
-    q8: 'd',
-    q9: 'a',
-    q10: 'b'
+    q8: 'a',
+    q9: 'c',
+    q10: 'd'
   };
 
   let score = 0;
