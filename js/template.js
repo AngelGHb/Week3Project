@@ -19,8 +19,14 @@ document.getElementById('quiz-form').addEventListener('submit', function (e) {
   let resultMessage = '';
 
   for (let question in correctAnswers) {
-    const selected = document.querySelector(`input[name="${question}"]:checked`);
-    const userAnswer = selected ? selected.value : null;
+    let selected = document.querySelector(`input[name="${question}"]:checked`);
+    let userAnswer;
+
+    if (selected) {
+    userAnswer = selected.value;
+    } else {
+    userAnswer = null;
+    }
 
     if (userAnswer === correctAnswers[question]) {
       score++;
