@@ -3,14 +3,16 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Quiz App</title>
+  <title>Quiz Template</title>
   <link rel="stylesheet" href="./css/styles.css">
 </head>
 
 <body>
-  <form id="quiz-form">
-    <div class="pop-quiz">
+  <div class="main-container" id="quiz-container">
+    <div class="border">
   <h1>Quiz</h1>
+  <form id="quiz-form">
+
     <!-- Question 1 -->
     <div class="question">
       <h2>What starts with "e" and ends with "e" but only has one letter in it?</h2>
@@ -85,7 +87,7 @@
 
     <!-- Question 9 -->
     <div class="question">
-      <h2>Take off my skin. I won't cry, but you will! What am I?</h2>
+      <h2>Take off my skin. I won't cry, but you will! What am I??</h2>
       <label><input type="radio" name="q9" value="a"> Garlic</label><br>
       <label><input type="radio" name="q9" value="b"> Shallots</label><br>
       <label><input type="radio" name="q9" value="c"> Onions</label><br>
@@ -104,8 +106,9 @@
     <br />
 
     <button type="submit">Submit</button>
-    </div>
   </form>
+  </div>
+  </div>
 </body>
 
 <script src='./js/template.js'> </script>

@@ -1,25 +1,41 @@
 body {
     background-color: bisque;
     font-family: Arial, sans-serif;
+      padding: 20px;
+}
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 75vh;
+}
+.border {
+    border: 2px solid black;
     padding: 20px;
+    min-height: 200px; /* <- This ensures consistent height */
+    width: 100%;
+    max-width: 600px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    background-color: azure;
 }
-
+.border h2,
+.border p {
+  text-align: center;
+}
 .question {
-    margin-bottom: 30px;
-    margin-left: 25px;
+      margin-bottom: 30px;
 }
-
 h1 {
-    color: rgb(24, 78, 177);
     text-align: center;
-    border-bottom: 1px solid #333;
-    padding-bottom: 30px;
+    border-bottom: 1px solid #111;
+    color: rgb(80, 135, 238);
 }
 
 h2 {
     margin-bottom: 10px;
-    font-size: 15px;
-    color: midnightblue;
+    color: crimson;
 }
 
 button {
@@ -27,19 +43,4 @@ button {
     color: black;
     font-weight: bold;
     border-radius: 4px 4px 4px 4px;
-    margin-bottom: 50px;
-
-    height: 35px;
-    width: 80px;
-    font-size: medium;
-    margin-left: 25px;
-}
-
-.pop-quiz {
-    background-color: azure;
-    width: 100%;
-    max-width: 600px;
-    margin: 100px auto;
-    border-radius: 10px;
-    padding: 30px;
 }
