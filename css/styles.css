@@ -3,9 +3,31 @@ body {
     font-family: Arial, sans-serif;
       padding: 20px;
 }
-
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 75vh;
+}
+.border {
+    border: 2px solid black;
+    padding: 20px;
+    min-height: 200px; /* <- This ensures consistent height */
+    width: 100%;
+    max-width: 600px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+.border h2,
+.border p {
+  text-align: center;
+}
 .question {
       margin-bottom: 30px;
+}
+h1 {
+    text-align: center;
 }
 
 h2 {
