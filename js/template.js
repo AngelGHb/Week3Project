@@ -1,6 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const questions = document.querySelectorAll(".question");
-  let currentQuestion = 0;
   const correctAnswers = {
     q1: "c",
     q2: "b",
@@ -14,63 +12,28 @@ document.addEventListener("DOMContentLoaded", () => {
     q10: "d",
   };
 
-  let score = 0;
-  let resultMessage = "";
+  const form = document.getElementById("quiz-form");
 
-  // Hide all questions initially
-  questions.forEach((q, index) => {
-    if (index !== 0) q.style.display = "none"; // only show the first question
-  });
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
 
-  function handleAnswer(event) {
-    const selected = questions[currentQuestion].querySelector("input:checked");
-    if (!selected) {
-      alert("Please select an answer before continuing.");
-      return;
+    let score = 0;
+    let resultMessage = "";
+
+    for (let question in correctAnswers) {
+      const selected = form.querySelector(`input[name="${question}"]:checked`);
+      const userAnswer = selected ? selected.value : null;
+
+      if (userAnswer === correctAnswers[question]) {
+        score++;
+        resultMessage += `✅ ${question.toUpperCase()} is correct!<br>`;
+      } else {
+        resultMessage += `❌ ${question.toUpperCase()} is incorrect. Correct: ${correctAnswers[question].toUpperCase()}<br>`;
+      }
     }
 
-    const questionName = selected.name;
-    const userAnswer = selected.value;
-
-    if (userAnswer === correctAnswers[questionName]) {
-      score++;
-      resultMessage += `✅ ${questionName.toUpperCase()} is correct!<br>`;
-    } else {
-      resultMessage += `❌ ${questionName.toUpperCase()} is incorrect. Correct: ${correctAnswers[
-        questionName
-      ].toUpperCase()}<br>`;
-    }
-
-    // Hide current question
-    questions[currentQuestion].style.display = "none";
-    currentQuestion++;
-
-    // If there's another question, show it
-    if (currentQuestion < questions.length) {
-      questions[currentQuestion].style.display = "block";
-    } else {
-      showResults();
-    }
-  }
-
-  function showResults() {
-    const total = Object.keys(correctAnswers).length;
     const resultDiv = document.createElement("div");
-    resultDiv.innerHTML = `<h2>Your Score: ${score} / ${total}</h2><p>${resultMessage}</p>`;
-    document.querySelector(".border").appendChild(resultDiv);
-  }
-
-  // Add change listener to each question's radio buttons
-  questions.forEach((questionDiv, index) => {
-    const radios = questionDiv.querySelectorAll('input[type="radio"]');
-    radios.forEach((radio) => {
-      radio.addEventListener("change", handleAnswer);
-    });
+    resultDiv.innerHTML = `<h2>Your Score: ${score} / 10</h2><p>${resultMessage}</p>`;
+    document.body.appendChild(resultDiv);
   });
-
-  // Hide the submit button since we're not using it
-  const submitButton = document.querySelector('button[type="submit"]');
-  if (submitButton) {
-    submitButton.style.display = "none";
-  }
 });
